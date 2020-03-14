@@ -14,24 +14,6 @@
 					<MenuItem name="home" to="/home">
 					<Icon type="md-home" />管理主页
 					</MenuItem>
-					<!-- <div v-for="(item,index) in menu " :key="index">
-						<Submenu :name="index" v-if="item.children && item.children.length>0 && !item.hidden">
-							<template slot="title">
-								<Icon :type="item.icon?item.icon:''" />
-								{{item.name}}
-							</template>
-							<Menu-item :name="sub.path" v-for="(sub,i) in item.children" :key="i" v-if="!sub.hidden">
-								<Icon type="ios-attach" />
-								{{sub.name}}
-							</Menu-item>
-						</Submenu>
-						<div>
-							<Menu-item :name="item.path" :key="index" v-if="item.children.length==0 && !item.hidden && item.level!=0 ">
-								<Icon :type="item.icon?item.icon:''" />
-								{{item.name}}
-							</Menu-item>
-						</div>
-					</div>-->
 					<template v-for="item in menu">
 						<Submenu v-if="item.children" :name="item.name" :key="item.name">
 							<template slot="title">
@@ -96,9 +78,9 @@
 			<div class="main-container">
 				<container>
 					<!-- 路由 -->
-					<transition name="fade" mode="out-in">
-						<router-view></router-view>
-					</transition>
+					<!-- <transition name="fade" mode="out-in"> -->
+					<router-view></router-view>
+					<!-- </transition> -->
 					<!-- 路由/ -->
 				</container>
 			</div>
