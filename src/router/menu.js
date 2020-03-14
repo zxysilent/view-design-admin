@@ -1,163 +1,127 @@
 const menu = [
-    {
-        path: "/index",
-        name: "index",
-        icon: "md-home",
-        level: 1,
-        sort: 1,
-        children: [],
-        fixed: false
-    },
-    {
-        path: "/",
-        name: "列表页",
-        icon: "md-list",
-        level: 0,
-        fixed: false,
-        children: [
-            {
-                path: "/chart",
-                name: "chart",
-                icon: "mk-link",
-                level: 1,
-                children: [],
-                fixed: false
-            },
-            {
-                path: "/list",
-                name: "list",
-                level: 1,
-                children: [],
-                fixed: false
-            },
-            {
-                path: "/userInfo",
-                name: "userInfo",
-                icon: "ios-book",
-                children: [],
-                fixed: false,
-                level: 1
-            },
-            {
-                level: 1,
-                path: "/userList",
-                children: [],
-                fixed: false,
-                name: "userList"
-            },
-            {
-                level: 1,
-                path: "/table",
-                name: "table",
-                children: [],
-                fixed: false,
-                hidden: true
-            },
-            {
-                level: 1,
-                path: "/icon",
-                name: "icon",
-                children: [],
-                fixed: false,
-                icon: "ios-bowtie"
-            },
-            {
-                level: 1,
-                path: "/filter",
-                name: "filter",
-                children: [],
-                fixed: false,
-                icon: "ios-bowtie"
-            }
-        ]
-    },
-    {
-        path: "/",
-        name: "页面",
-        level: 0,
-        icon: "md-build",
-        fixed: false,
-        children: [
-            {
-                level: 1,
-                path: "/error404",
-                children: [],
-                fixed: false,
-                name: "404"
-            },
-            {
-                level: 1,
-                path: "/notfound",
-                children: [],
-                fixed: false,
-                name: "Not found"
-            },
-            {
-                level: 1,
-                path: "/login",
-                children: [],
-                fixed: false,
-                name: "登录"
-            },
-            {
-                level: 1,
-                path: "/register",
-                children: [],
-                fixed: false,
-                name: "注册"
-            }
-        ]
-    },
-    {
-        path: "/",
-        name: "管理",
-        level: 0,
-        icon: "md-build",
-        fixed: false,
-        children: [
-            {
-                level: 1,
-                path: "/setMenu",
-                children: [],
-                fixed: false,
-                name: "setMenu"
-            },
-            {
-                level: 1,
-                path: "/setMenu2",
-                children: [],
-                fixed: false,
-                name: "setMenu2"
-            },
-            {
-                level: 1,
-                path: "/notFound",
-                children: [],
-                fixed: false,
-                name: "notFound"
-            }
-        ]
-    },
-    {
-        path: "/index",
-        name: "123",
-        icon: "md-body",
-        // hidden: true,
-        level: 0,
-        sort: 1,
-        children: [],
-        fixed: false
-    },
-    {
-        path: "/index",
-        name: "123",
-        icon: "md-add-circle",
-        // hidden: true,
-        level: 0,
-        sort: 1,
-        children: [],
-        fixed: false
-    }
-];
+	// {
+	// {
+	// 	path: "/chart",
+	// 	name: "chart",
+	// 	component: Chart,
+	// 	meta: {}
+	// },
+	// {
+	// 	path: "/list",
+	// 	name: "list",
+	// 	component: List,
+	// 	meta: {}
+	// },
+	// {
+	// 	path: "/userInfo",
+	// 	name: "userInfo",
+	// 	component: UserInfo,
+	// 	icon: "icon-addpeople_fill",
+	// 	meta: {}
+	// },
+	// {
+	// 	path: "/table",
+	// 	name: "table",
+	// 	component: Table,
+	// 	meta: {}
+	// },
+	// },
+	// {
+	// 	path: "/article",
+	// 	name: "article",
+	// 	meta: { title: "文章管理", icon: "ios-paper" },
+	// 	children: [
+	// 		{
+	// 			path: "list",
+	// 			name: "article-list",
+	// 			meta: { title: "内容列表", icon: "md-list" }
+	// 		},
+	// 		{
+	// 			path: "add",
+	// 			name: "article-add",
+	// 			meta: { title: "添加内容", icon: "md-add" },
+	// 			component: () => import("@/views/article/add.vue")
+	// 		}
+	// 	]
+	// },
+	{
+		path: "/pages",
+		name: "pages",
+		meta: {title:"页面集合",icon:"ios-hammer"},
+		children: [
+			{
+				path: "notfound",
+				name: "pages-notfound",
+				meta: { title: "未发现", icon: "ios-paper" }
+			},
+			{
+				path: "editor",
+				name: "pages-editor",
+				meta: { title: "富文本", icon: "ios-paper" }
+			}
+		]
+	},
+	{
+		path: "/tag",
+		name: "tag",
+		meta: { title: "标签管理", icon: "md-pricetag" },
+		children: [
+			{
+				path: "list",
+				meta: { title: "标签列表", icon: "md-list" },
+				name: "tag-list"
+			},
+			{
+				path: "add",
+				meta: { title: "添加标签", icon: "md-add" },
+				name: "tag-add"
+			}
+		]
+	},
+	{
+		path: "/user",
+		name: "user",
+		meta: { title: "用户管理", icon: "md-person" },
+		children: [
+			{
+				path: "list",
+				name: "user-list",
+				meta: { title: "用户列表", icon: "md-people" }
+			},
+			{
+				path: "add",
+				name: "user-add",
+				meta: { title: "添加用户", icon: "md-person-add" }
+			}
+		]
+	},
+	{
+		path: "/setting",
+		name: "setting",
+		meta: {
+			title: "系统设置",
+			icon: "ios-cog-outline"
+		},
+		children: [
+			{
+				path: "base",
+				meta: { title: "基本设置", icon: "ios-code-working" },
+				name: "setting-base"
+			},
+			{
+				path: "analytic",
+				meta: { icon: "ios-pulse", title: "统计设置" },
+				name: "setting-analytic"
+			},
+			{
+				path: "register",
+				meta: { title: "用户注册", icon: "logo-vimeo" },
+				name: "register"
+			}
+		]
+	},
 
+	{ path: "/500", name: "500", meta: { title: "500-异常", icon: "ios-bug" } },
+	{ path: "/*", name: "404", meta: { title: "404-没发现", icon: "md-bug" } }
+];
 export default menu;

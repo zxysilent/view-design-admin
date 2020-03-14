@@ -1,126 +1,163 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "@/components/layout/Home";
-import Index from "@/components/views/Index";
+import Layout from "@/views/Layout.vue";
 
-const Chart = () => import("@/components/views/Chart");
-const NotFound = () => import("@/components/pages/NotFound");
-const Register = () => import("@/components/pages/register");
-const E404 = () => import("@/components/pages/E404");
-const Icon = () => import("@/components/pages/Icon");
-const Login = () => import("@/components/pages/Login");
-const Table = () => import("@/components/views/Table");
-const UserInfo = () => import("@/components/views/UserInfo");
-const List = () => import("@/components/views/List");
-const Filter = () => import("@/components/pages/Filter");
-const Lock = () => import("@/components/layout/base/lock");
 Vue.use(VueRouter);
 
 const routes = [
-    {
-        path: "/",
-        name: "Home",
-        component: Home,
-        children: [
-            {
-                path: "/index",
-                name: "index",
-                component: Index,
-                icon: "icon-wujiaoxing",
-                level: 1,
-                meta: {
-                    requiresAuth: true // 是否需要登录
-                }
-            },
-            {
-                path: "/chart",
-                name: "chart",
-                component: Chart,
-                meta: {
-                    requiresAuth: true // 是否需要登录
-                }
-            },
-            {
-                path: "/list",
-                name: "list",
-                component: List,
-                meta: {
-                    requiresAuth: true // 是否需要登录
-                }
-            },
-            {
-                path: "/userInfo",
-                name: "userInfo",
-                component: UserInfo,
-                icon: "icon-addpeople_fill",
-                meta: {
-                    requiresAuth: true // 是否需要登录
-                }
-            },
-            {
-                path: "/table",
-                name: "table",
-                component: Table,
-                meta: {
-                    requiresAuth: true // 是否需要登录
-                }
-            },
-            {
-                path: "/icon",
-                name: "icon",
-                component: Icon,
-                meta: {
-                    requiresAuth: true // 是否需要登录
-                }
-            },
-            {
-                path: "/filter",
-                name: "filter",
-                component: Filter,
-                meta: {
-                    requiresAuth: true // 是否需要登录
-                }
-            },
-            {
-                path: "/notFound",
-                name: "notFound",
-                component: NotFound,
-                meta: {
-                    requiresAuth: true // 是否需要登录
-                }
-            }
-        ]
-    },
-    {
-        path: "/login",
-        name: "login",
-        component: Login
-    },
-    {
-        path: "/register",
-        name: "register",
-        component: Register
-    },
-    {
-        path: "/error404",
-        name: "error404",
-        component: E404
-    },
-    {
-        path: "/lock",
-        name: "lock",
-        component: Lock
-    },
-    {
-        path: "*",
-        redirect: "/notFound"
-    }
+	{
+		path: "/",
+		name: "layout",
+		component: Layout,
+		children: [
+			{
+				path: "/home",
+				name: "home",
+				meta: { icon: "md-home" },
+				component: () => import("@/views/Home.vue")
+			}
+		]
+	},
+	{
+		path: "/pages",
+		name: "pages",
+		meta: {},
+		component: Layout,
+		children: [
+			{
+				path: "notfound",
+				name: "pages-notfound",
+				meta: { title: "未发现", icon: "ios-paper" },
+				component: () => import("@/views/pages/notfound.vue")
+			},{
+				path: "editor",
+				name: "pages-editor",
+				meta: { title: "富文本", icon: "ios-paper" },
+				component: () => import("@/views/pages/editor.vue")
+			}
+		]
+	},
+	// {
+	// 	path: "/article",
+	// 	name: "article",
+	// 	meta: { title: "文章管理", icon: "ios-paper" },
+	// 	component: Layout,
+	// 	children: [
+	// 		{
+	// 			path: "list",
+	// 			name: "article-list",
+	// 			meta: { title: "内容列表", icon: "md-list" },
+	// 			component: () => import("@/views/article/list.vue")
+	// 		},
+	// 		{
+	// 			path: "add",
+	// 			name: "article-add",
+	// 			meta: { title: "添加内容", icon: "md-add" },
+	// 			component: () => import("@/views/article/add.vue")
+	// 		},
+	// 		{
+	// 			path: "edit/:id(\\d+)",
+	// 			name: "article-edit",
+	// 			meta: { title: "修改内容" },
+	// 			component: () => import("@/views/article/edit.vue")
+	// 		}
+	// 	]
+	// },
+	{
+		path: "/tag",
+		name: "tag",
+		meta: { title: "标签管理", icon: "md-pricetag" },
+		component: Layout,
+		children: [
+			{
+				path: "list",
+				meta: { title: "标签列表", icon: "md-list" },
+				name: "tag-list",
+				component: () => import("@/views/tag/list.vue")
+			},
+			{
+				path: "add",
+				meta: { title: "添加标签", icon: "md-add" },
+				name: "tag-add",
+				component: () => import("@/views/tag/add.vue")
+			}
+		]
+	},
+	{
+		path: "/user",
+		name: "user",
+		meta: { title: "用户管理", icon: "md-person" },
+		component: Layout,
+		children: [
+			{
+				path: "list",
+				name: "user-list",
+				meta: { title: "用户列表", icon: "md-people" },
+				component: () => import("@/views/user/list.vue")
+			},
+			{
+				path: "self",
+				name: "user-self",
+				meta: { title: "个人中心", icon: "md-information" },
+				component: () => import("@/views/user/self.vue")
+			},
+			{
+				path: "add",
+				name: "user-add",
+				meta: { title: "添加用户", icon: "md-person-add" },
+				component: () => import("@/views/user/add.vue")
+			},
+			{
+				path: "edit/:id(\\d+)",
+				name: "user-edit",
+				meta: { title: "修改用户" },
+				component: () => import("@/views/user/edit.vue")
+			}
+		]
+	},
+	{
+		path: "/setting",
+		name: "setting",
+		meta: { title: "系统设置", icon: "ios-cog-outline" },
+		component: Layout,
+		children: [
+			{
+				path: "base",
+				meta: { title: "基本设置", icon: "ios-code-working" },
+				name: "setting-base",
+				component: () => import("@/views/setting/base.vue")
+			},
+			{
+				path: "analytic",
+				meta: { icon: "ios-pulse", title: "统计设置" },
+				name: "setting-analytic",
+				component: () => import("@/views/setting/analytic.vue")
+			}
+		]
+	},
+	{
+		path: "/login",
+		name: "login",
+		component: () => import("@/views/Login.vue")
+	},
+	{
+		path: "/setting/register",
+		name: "register",
+		meta: { icon: "logo-vimeo", title: "用户注册" },
+		component: () => import("@/views/user/register.vue")
+	},
+	{
+		path: "/lock",
+		name: "lock",
+		component: () => import("@/components/layout/base/lock")
+	},
+	{ path: "/500", name: "500", meta: { title: "500-异常" }, component: () => import("@/components/errors/500.vue") },
+	{ path: "/*", name: "404", meta: { title: "404-没发现" }, component: () => import("@/components/errors/404.vue") }
 ];
-
 const router = new VueRouter({
-    mode: "history",
-    base: process.env.BASE_URL,
-    routes
+	mode: "history",
+	base: process.env.BASE_URL,
+	routes
 });
 
 export default router;
