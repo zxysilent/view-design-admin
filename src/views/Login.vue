@@ -87,6 +87,7 @@ export default {
 			let that = this;
 			that.$refs.loginForm.validate(valid => {
 				if (valid) {
+                    that.$router.push({ name: "home" });
 					// let data = {
 					//     num: that.user.num,
 					//     mode:that.user.mode,

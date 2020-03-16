@@ -155,7 +155,7 @@ const routes = [
 	{ path: "/*", name: "404", meta: { title: "404-没发现" }, component: () => import("@/components/errors/404.vue") }
 ];
 const router = new VueRouter({
-	mode: "history",
+	mode: "hash",//"history",
 	base: process.env.BASE_URL,
 	routes
 });
