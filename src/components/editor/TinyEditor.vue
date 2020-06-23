@@ -7,6 +7,7 @@
 <script>
 // Import TinyMCE
 import tinymce from "tinymce/tinymce";
+import "tinymce/icons/default";
 import "tinymce/themes/silver";
 import "tinymce/plugins/advlist";
 import "tinymce/plugins/codesample";
@@ -110,7 +111,7 @@ export default {
 				toolbar_items_size: "small",
 				nonbreaking_force_tab: true,
 				content_css: false,
-				forced_root_block: "",
+				forced_root_block: "div",
 				paste_retain_style_properties: "all",
 				paste_word_valid_elements: "*[*]",
 				paste_data_images: true,
