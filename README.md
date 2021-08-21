@@ -20,7 +20,7 @@ iview:2.4.0 ---->view-design:4.1.3
 
 ## 预览地址
 
-[http://76.zxysilent.com/demos/view-design-admin/index.html](http://76.zxysilent.com/demos/view-design-admin/index.html)
+[http://qn.static.zxysilent.com/demos/view-design-admin/index.html#/home](http://qn.static.zxysilent.com/demos/view-design-admin/index.html#/home)
 
 ## Project setup
 
